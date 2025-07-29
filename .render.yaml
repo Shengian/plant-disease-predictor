@@ -1,9 +1,6 @@
 services:
   - type: web
-    name: plant-disease-app
-    runtime: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: python app.py
-    envVars:
-      - key: PYTHON_VERSION
-        value: 3.10
+    name: plant-disease-predictor
+    env: python
+    buildCommand: pip install --prefer-binary -r requirements.txt
+    startCommand: gunicorn app.py
